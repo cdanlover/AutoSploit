@@ -1,0 +1,52 @@
+<!doctype html>
+<header>
+    <title>Results</title>
+    <style>
+        .dropdown-content {{display: none;}}
+        .dropdown-content a {{color: black;}}
+        .show {{display:block;}}
+    </style>
+</header>
+<body>
+<div id="dateReference">
+    <h1 id="currentDate">Exploit automation completed on: {date_of_attack}</h1>
+</div>
+<div id="discoveredVulnerabilities">
+    <div id="amountOfHost">
+        <h4 id="hostCount">Total of {amount_of_hosts} separate hosts attacked</h4>
+    </div>
+
+    <button id="showHostsButton" onclick="showAllHosts();" class="dropbtn">Show Hosts</button>
+    <div id="hostDropDown" class="dropdown-content">
+        {all_hosts_attacked}
+    </div>
+
+    <div id="successfulAttacks">
+        <h4 id="successAttacksBanner">Successful Attacks:</h4>
+    </div>
+    {exploit_table}
+    <button id="displayAllAttacks">All Attacks</button>
+</div>
+<script>
+    function showAllHosts() {{
+        document.getElementById("hostDropDown").classList.toggle("show");
+    }}
+
+    window.onclick = function(event) {{
+        if (!event.target.matches('.dropbtn')) {{
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {{
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {{
+            openDropdown.classList.remove('show');
+          }}
+        }}
+      }}
+    }}
+   </script>
+<br><br>
+<footer>
+    <small id="footerSmall">Brought to you with <3 by the AutoSploit team</small>
+</footer>
+</body>

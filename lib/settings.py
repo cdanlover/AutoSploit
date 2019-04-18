@@ -7,6 +7,7 @@ import platform
 import getpass
 import tempfile
 import readline
+import datetime
 import distutils.spawn
 from subprocess import (
     PIPE,
@@ -18,6 +19,7 @@ import psutil
 import lib.output
 import lib.banner
 import lib.jsonize
+import lib.creation.issue_creator
 
 
 class AutoSploitCompleter(object):
@@ -76,6 +78,19 @@ try:
     open(HOST_FILE).close()
 except:
     open(HOST_FILE, "a+").close()
+
+# the html template we will use
+HTML_PAGE_TEMPLATE = "{}/etc/template/template.html".format(CUR_DIR)
+
+# where the HTML pages are stored
+HTML_PAGE_PATH = "{}/html_pages/{}".format(HOME, str(datetime.datetime.today()).split(" ")[0])
+
+# the actual html page to be generated
+HTML_PAGE_GENERATION_FILE_PATH = "{}/{}_{}.html".format(
+    HTML_PAGE_PATH,
+    str(datetime.datetime.today()).split(" ")[0],
+    lib.creation.issue_creator.create_identifier(str(datetime.datetime.today()))[0:9]
+)
 
 # path to the folder containing all the JSON exploit modules
 EXPLOIT_FILES_PATH = "{}/etc/json".format(CUR_DIR)
