@@ -1,3 +1,5 @@
+![GitHub release](https://img.shields.io/github/release/NullArray/AutoSploit.svg?style=social)
+
 <center><img src="https://user-images.githubusercontent.com/14183473/55991044-e9317000-5c6e-11e9-8730-a2e9d5c3ea68.jpg"></image></center>
 <br>
 As the name might suggest AutoSploit attempts to automate the exploitation of remote hosts. Targets can be collected automatically through Shodan, Censys or Zoomeye. But options to add your custom targets and host lists have been included as well. The available Metasploit modules have been selected to facilitate Remote Code Execution and to attempt to gain Reverse TCP Shells and/or Meterpreter sessions. Workspace, local host and local port for MSF facilitated back connections are configured by filling out the dialog that comes up before the exploit component is started
